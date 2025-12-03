@@ -11,35 +11,21 @@ private:
     int year;
 
 public:
-    Date() : month(0), day(0), year(0) {}
-    Date(int m, int d, int y) : month(m), day(d), year(y) {}
+    Date();
+    Date(int m, int d, int y);
 
-    // Getters
-    int getMonth() const { return month; }
-    int getDay() const { return day; }
-    int getYear() const { return year; }
+    int getMonth() const;
+    int getDay() const;
+    int getYear() const;
 
-    // Setters
-    void setMonth(int m) { month = m; }
-    void setDay(int d) { day = d; }
-    void setYear(int y) { year = y; }
+    void setMonth(int m);
+    void setDay(int d);
+    void setYear(int y);
 
-    // Operators
-    friend istream& operator>>(istream& in, Date& b) {
-        in >> b.month >> b.day >> b.year;
-        return in;
-    }
+    bool operator==(const Date& rhs) const;
 
-    friend ostream& operator<<(ostream& out, const Date& b) {
-        out << b.month << " " << b.day << " " << b.year;
-        return out;
-    }
-
-    bool operator==(const Date& rhs) const {
-        return (month == rhs.month &&
-                day == rhs.day &&
-                year == rhs.year);
-    }
+    friend istream& operator>>(istream& in, Date& b);
+    friend ostream& operator<<(ostream& out, const Date& b);
 };
 
 #endif
