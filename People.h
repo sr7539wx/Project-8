@@ -12,32 +12,20 @@ private:
     Date birthday;
 
 public:
-    People() {}
-    People(string n, Date b) : name(n), birthday(b) {}
+    People();
+    People(string n, Date b);
 
-    string getName() const { return name; }
-    Date getBirthday() const { return birthday; }
+    string getName() const;
+    Date getBirthday() const;
 
-    void setName(string n) { name = n; }
-    void setBirthday(Date d) { birthday = d; }
+    void setName(string n);
+    void setBirthday(Date d);
 
-    friend istream& operator>>(istream& in, People& p) {
-        in >> p.name >> p.birthday;
-        return in;
-    }
+    bool operator<(const People& rhs) const;
+    bool operator==(const People& rhs) const;
 
-    friend ostream& operator<<(ostream& out, const People& p) {
-        out << p.name << " " << p.getBirthday();
-        return out;
-    }
-
-    bool operator<(const People& rhs) const {
-        return name < rhs.name;
-    }
-
-    bool operator==(const People& rhs) const {
-        return name == rhs.name && birthday == rhs.birthday;
-    }
+    friend istream& operator>>(istream& in, People& p);
+    friend ostream& operator<<(ostream& out, const People& p);
 };
 
 #endif
