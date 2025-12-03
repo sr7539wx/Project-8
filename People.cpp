@@ -2,7 +2,7 @@
 
 People::People() {}
 
-People::People(string n, Date d) : name(n), birthday(d) {}
+People::People(string n, Date b) : name(n), birthday(b) {}
 
 string People::getName() const { return name; }
 Date People::getBirthday() const { return birthday; }
@@ -15,5 +15,6 @@ bool People::operator<(const People& rhs) const {
 }
 
 bool People::operator==(const People& rhs) const {
-    return name == rhs.name && birthday == rhs.birthday;
+    return name == rhs.name &&
+           birthday == rhs.birthday;
 }
